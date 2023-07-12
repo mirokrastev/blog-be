@@ -48,7 +48,8 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-
+    'base',
+    'accounts',
 ]
 
 INSTALLED_APPS = [
@@ -101,6 +102,8 @@ DATABASES = {
 }
 
 DATABASES['default']['ATOMIC_REQUESTS'] = True
+
+AUTH_USER_MODEL = 'accounts.BaseUser'
 
 
 # Password validation
