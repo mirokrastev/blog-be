@@ -45,6 +45,7 @@ THIRD_PARTY_APPS = [
     'corsheaders',
     'rest_framework',
     'rest_framework_simplejwt',
+    'drf_yasg',
 ]
 
 LOCAL_APPS = [
@@ -164,3 +165,8 @@ REST_FRAMEWORK = {
 }
 
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS').split(',')
+
+SWAGGER_SETTINGS = {
+    'USE_SESSION_AUTH': False,
+    'DEFAULT_MODEL_RENDERING': 'example'
+}

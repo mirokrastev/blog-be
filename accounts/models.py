@@ -7,6 +7,10 @@ from base.models import BaseModel
 
 class BaseUser(BaseModel, AbstractUser):
     email = models.EmailField(_('email address'), unique=True)
+    first_name = models.CharField(_("first name"), max_length=150)
+    last_name = models.CharField(_("last name"), max_length=150)
+
+    REQUIRED_FIELDS = ['email', 'first_name', 'last_name']
 
     def __str__(self):
         return self.username
