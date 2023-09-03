@@ -9,6 +9,6 @@ class CategoryViewSet(mixins.ListModelMixin, viewsets.GenericViewSet):
     queryset = models.Category.objects.all()
 
 
-class ArticleViewSet(viewsets.ModelViewSet):
+class ArticleViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = serializers.ArticleSerializer
     queryset = models.Article.objects.all()
