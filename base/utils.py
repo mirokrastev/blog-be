@@ -23,3 +23,21 @@ def inline_serializer(*, fields, data=None, **kwargs):
         return serializer_class(data=data, **kwargs)
 
     return serializer_class(**kwargs)
+
+
+class InputOutputField(serializers.Field):
+    def __init__(
+        self,
+        input: serializers.Serializer | serializers.Field,
+        output: serializers.Serializer | serializers.Field,
+        *args, **kwargs
+    ):
+        super().__init__(*args, **kwargs)
+        self.input = input
+        self.output = output
+
+    def to_internal_value(self, data):
+        return self.input.to_internal_value(data)
+
+    def to_representation(self, value):
+        return self.output.to_representation(value)
